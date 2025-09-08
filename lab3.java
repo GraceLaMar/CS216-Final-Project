@@ -1,4 +1,4 @@
-// lab3.java
+// lab3a.java
 // grace lamar
 // fall 2025
 // power and GCD recursive functions
