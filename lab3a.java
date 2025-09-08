@@ -3,7 +3,7 @@
 // fall 2025
 // power and GCD recursive functions
 //
-public class Main {
+public class lab3a {
     public static void main(String[] args) {
 
         // call to power function
