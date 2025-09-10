@@ -1,6 +1,6 @@
 // lab3b.java
 // fall 2025
-// Prof. Lehman
+// Grace La Mar
 // Demonstrates recursive algorithm to "flood fill"
 // an ASCII graphic
 
@@ -25,7 +25,7 @@ class lab3b {
         display(grid);
 
         // fill same space with 'b'
-        floodFill(grid, 5, 3, 'b', 'g');
+        floodFill(grid, 0, 0, 'b', 'r');
         display(grid);
     } // main
 
@@ -33,7 +33,12 @@ class lab3b {
     public static void floodFill(char temp[][], int row, int col, char fillColor, char borderColor) {
 
         // base case is when position is already filled or hit border
+        if (row < 0 || row >= temp.length || col < 0 || col >= temp[0].length) {
+            return;
+        }
+
         if (temp[row][col] != fillColor && temp[row][col] != borderColor) {
+
 
             // set current to fill color
             temp[row][col] = fillColor;
@@ -43,6 +48,13 @@ class lab3b {
             floodFill(temp, row, col + 1, fillColor, borderColor); // fill right
 
             floodFill(temp, row + 1, col, fillColor, borderColor); // fill down
+            floodFill(temp, row - 1, col, fillColor, borderColor); // fill up
+ 
+            floodFill(temp, row + 1, col + 1, fillColor, borderColor); // fill down right
+            floodFill(temp, row - 1, col + 1, fillColor, borderColor); // fill up right
+            floodFill(temp, row + 1, col - 1, fillColor, borderColor); // fill down left
+            floodFill(temp, row - 1, col - 1, fillColor, borderColor); // fill up left
+
 
         }
 
